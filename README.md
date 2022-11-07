@@ -1,70 +1,113 @@
-# Getting Started with Create React App
+# React Redux Week
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## ***Lab 36: Application State with Redux PHASE 1***
 
-## Available Scripts
+## Before you begin
 
-In the project directory, you can run:
+- Create a UML diagram of the Virtual Store architecture on a whiteboard before you start
 
-### `npm start`
+> Create a new repository for this project, called ‘storefront’ and work in a branch called ‘redux’
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## UML
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Phase 1 Requirements
 
-### `npm test`
+- The first of a 4-Phase build of the storefront application, written in React. In this first phase, our goal is to setup the basic scaffolding of the application with initial styling and basic behaviors. This initial build sets up the file structure and state management so that we can progressively build this application in a scalable manner
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### [Example of Fully completed Website after this week:](https://virtual-web-store.netlify.app/)
 
-### `npm run build`
+## User Stories
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- As a user, I expect to see a list of available product categories in the store so that I can easily browse products
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- As a user, I want to choose a category and see a list of all available products matching that category
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- As a user, I want a clean, easy to use user interface so that I can shop the online store with confidence
 
-### `npm run eject`
+## Technical Requirements
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+- Create a visually appealing site using [Material UI](https://material-ui.com/)
+- Use a Redux Store to manage the state of categories and items in the store
+- Display a list of categories from state
+- When the user selects (clicks on) a category …
+  - Identify that category as selected (change of class/display)
+  - Show a list of products associated with the category
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Application Architecture
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+- Begin with creating your application using create-react-app
+- Install Material UI as a dependency
+- Write an App component that serves as the container for all sub-components of this application
+  - A `<Header>` component which shows the name of your virtual store
+  - A `<Footer>` component which shows your copyright and contact information
+  - A `<Categories>` component
+    - Shows a list of all categories
+    - Dispatches an action when one is clicked to “activate” it  
+  - A `<Products>` component
+    - Displays a list of products associated with the selected category
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## Notes on constructing the Redux Store
 
-## Learn More
+- Categories
+  - State should contain a list of categories as well as the active category
+    - Each category should have a normalized name, display name, and a description
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+  - Create an action that will trigger the reducer to change the active category
+  - Update the active category in the reducer when this action is dispatched
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+- Products
+  - State should be a list of all products
+    - Each product should have a category association, name, description, price, inventory count
 
-### Code Splitting
+  - Create an action that will trigger when the active category is changed
+    - HINT: Multiple reducers can respond to the same actions
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+  - Create a reducer that will filter the products list based on the active category
 
-### Analyzing the Bundle Size
+- Active Category
+  - State should store active category
+    - Other components (products, etc) might need to reference this
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+### Application Structure (Proposed)
 
-### Making a Progressive Web App
+    ├── .gitignore
+    ├── .eslintrc.json
+    ├── __tests__
+    │   ├── app.test.js
+    │   ├── cart.test.js
+    ├── src
+    │   ├── index.js
+    │   ├── app.js
+    │   ├── store
+    │   │   ├── index.js
+    │   │   ├── categories.js
+    │   │   ├── products.js
+    │   │   ├── cart.js
+    │   ├── components
+    │   │   ├── storefront
+    │   │   │   └── categories.js
+    │   │   │   └── current-category.js
+    │   │   │   └── products.js
+    │   │   │   └── storefront.js
+    │   │   ├── products
+    │   │   │   └── details.js
+    │   │   ├── cart
+    │   │   │   └── simplecart.js
+    │   │   │   └── checkout.js
+    │   │   ├── header
+    │   │   │   └── header.js
+    │   │   ├── footer
+    │   │   │   └── footer.js
+    └── package.json
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+## Deployment
 
-### Advanced Configuration
+[Linked to Deployed Site (Using SandBox)]()
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+## [Tests](./src/__tests__/)
 
-### Deployment
+## [PR Link]()
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+## Resources
 
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
