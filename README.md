@@ -10,6 +10,8 @@
 
 ## UML
 
+- ![Alt text](public/assets/UML%20Rough%20Draft%20for%20Lab%2036.png)
+
 ## Phase 1 Requirements
 
 - The first of a 4-Phase build of the storefront application, written in React. In this first phase, our goal is to setup the basic scaffolding of the application with initial styling and basic behaviors. This initial build sets up the file structure and state management so that we can progressively build this application in a scalable manner
@@ -109,5 +111,7 @@
 ## [PR Link]()
 
 ## Resources
+
+- [Link to Materials UI ***Getting Started:***](https://mui.com/)
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
