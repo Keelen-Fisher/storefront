@@ -104,11 +104,11 @@
 
 ## Deployment
 
-[Linked to Deployed Site (Using SandBox)]()
+[Linked to Deployed Site (Using SandBox)](https://codesandbox.io/p/github/Keelen-Fisher/storefront/draft/smoosh-breeze?file=%2FREADME.md)
 
 ## [Tests](./src/__tests__/)
 
-## [PR Link]()
+## [PR Link](https://github.com/Keelen-Fisher/storefront/pull/1)
 
 ## Resources
 
