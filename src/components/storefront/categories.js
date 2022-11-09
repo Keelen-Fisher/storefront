@@ -1,29 +1,40 @@
 
-import React, { useEffect, useCallback } from 'react';
+import Button from '@mui/material/Button';
+import ButtonGroup from '@mui/material/ButtonGroup'
+import Typography from '@mui/material/Typography';
+import { orderCategory } from '../../store/categories';
+import { connect } from 'react-redux';
 
-import {Button, ButtonGroup, Typography } from '@mui/material';
 
-const Categories = props => {
+const Categories = (props) => {
 
-
-  useEffect(() => {
-    
-  });
+  const { orderCategory } = props;
 
   return (
-    <div >
-      <Typography variant="h5">Browse our Categories</Typography>
-      <ButtonGroup variant="text" color="primary" aria-label="text primary button group">     
-          <Button>
-            FOOD 
-            ELECTRICS
-            GAMES
-            WEAPONS
-          </Button>
-      </ButtonGroup>
-    </div>
-  );
+    <>
+      <Typography variant="h6" component="div" >
+        Browse our Categories
+      </Typography>
+      {
+        props.categories.map((category, index) => (
+          <ButtonGroup key={`category-${index}`} variant="text" >
+            <Button onClick={() => orderCategory(category.name)}>{category.displayName}</Button>
+          </ButtonGroup>
+        ))
+      }
+    </>
+
+  )
 }
 
+const mapStateToProps = ({ productReducer }) => {
+  return {
+    categories: productReducer.categories,
+  }
+}
 
-export default Categories;
+const mapDispatchToProps = {
+  orderCategory,
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Categories);
