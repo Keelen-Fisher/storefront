@@ -1,25 +1,30 @@
-import { AppBar, Toolbar, Button, Typography, Grid } from '@mui/material';
+import { AppBar, Toolbar, Button, Typography, Grid, ThemeProvider, createTheme, Box } from '@mui/material';
 
 
 const Header = props => {
-
+  const theme = createTheme({
+    palette: {
+      primary: {
+        main: '#ffffff',
+      },
+    },
+  });
 
   return (
-    <AppBar position="relative">
-      <Toolbar >
-        <Grid container>
-          <Grid item xs>
-            <Typography color="inherit" component="div">
+    <ThemeProvider theme={theme}>
+      <Box sx={{ flexGrow: 1 }}>
+        <AppBar position="relative">
+          <Toolbar >
+
+            <Typography variant="h5" component="div" sx={{ flexGrow: 1 }}>
               <h4>Our Store</h4>
             </Typography>
-            <Button edge="start" color="inherit" aria-label="menu" sx={{ mr: 2 }}>
-              Cart (0)
-            </Button>
-          </Grid>
-        </Grid>
-      </Toolbar>
-    </AppBar>
+            <Button color="inherit">CART</Button>
 
+          </Toolbar>
+        </AppBar>
+      </Box>
+    </ThemeProvider>
   );
 }
 
