@@ -5,7 +5,7 @@ import { Button, ButtonGroup, Typography } from '@mui/material';
 
 import { connect } from 'react-redux';
 
-const Categories = props => {
+const Categories = (props)=> {
 
 
   const { categoryOrder  } = props;
@@ -29,9 +29,11 @@ const Categories = props => {
 //  object that contains the data that the component needs.
 //  returns an object with the list and categories properties.
  
-const mapStateToProps = (props) => {
+const mapStateToProps = (store) => {
   return {
-    categories: store.categoryReducer.categories,
+   
+    categories: store.categoriesReducer.categories,
+    product: store.productReducer.categories
   }
 }
 

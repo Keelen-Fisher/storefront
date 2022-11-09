@@ -1,19 +1,19 @@
 import React from 'react';
 
 import './app.css';
-import Categories from './components/storefront/categories';
-import CurrentCategoryList from './components/storefront/current-category';
 import Header from './components/header/header.js';
+import Categories from './store/categories';
+import Products from './store/products'
 import Footer from './components/footer/footer.js';
-import StoreFront from './components/storefront';
-
+import CategoriesList from './components/Categoreis/category-List';
  function App() {
 
   return (
     <>
       <Header />
       <Categories />
-      <CurrentCategoryList />
+      <Products />
+      <CategoriesList/>
       <Footer />
 
     </>

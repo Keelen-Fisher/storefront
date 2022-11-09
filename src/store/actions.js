@@ -1,8 +1,13 @@
-export const categoryOrder = (activeCategory) => {
+export const categoryOrder = (category) => {
   return {
     type: 'CATEGORY',
-    payload: activeCategory,
+    payload: category,
   }
 }
 
-export default categoryOrder;
+export const reset = () => {
+  return {
+    type: 'RESET',
+  }
+}
+
