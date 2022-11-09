@@ -196,7 +196,7 @@
 
 ## [Test](./src/__tests__/)
 
-## [PR - Link]()
+## [PR - Link](https://github.com/Keelen-Fisher/storefront/pull/3)
 
 ## Resources-
 
