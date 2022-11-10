@@ -1,5 +1,6 @@
-import { AppBar, Toolbar, Button, Typography, Grid, ThemeProvider, createTheme, Box } from '@mui/material';
-
+import { AppBar, Toolbar, Button, Typography, ThemeProvider, createTheme, Box } from '@mui/material';
+import { connect } from 'react-redux';
+import Cart from '../cart/simplecart';
 
 const Header = props => {
   const theme = createTheme({
@@ -19,7 +20,7 @@ const Header = props => {
             <Typography variant="h5" component="div" sx={{ flexGrow: 1 }}>
               <h4>Our Store</h4>
             </Typography>
-            <Button color="inherit">CART</Button>
+            <Button color="inherit"><Cart/></Button>
 
           </Toolbar>
         </AppBar>
@@ -28,4 +29,14 @@ const Header = props => {
   );
 }
 
-export default Header;
+const mapStateToProps = ({ cartReducer }) => {
+  return {
+    quantity: cartReducer.quantityInCart,
+  }
+}
+
+const mapDispatchToProps = {
+
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Header);
